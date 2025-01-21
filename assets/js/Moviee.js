@@ -53,7 +53,7 @@ fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=fr-FR`, options
                         <p class="iage">16</p>
                         <p>${film.release_date} (FR) </p>
                         <ul>
-                            <li>${film.genres[0].name},${film.genres[1].name}</li>
+                            <li>${film.genres.map((genres) => genres.name).join(", ")}</li>
                             <li>${heure} h ${minute}</li>
                         </ul>
                     </div>

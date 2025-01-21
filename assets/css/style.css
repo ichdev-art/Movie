@@ -144,11 +144,13 @@ img {
     border-radius: 15px;
 }
 
+
 .movie h3 {
     font-family: "Cinzel", sans-serif;
     color: white;
     font-size: 0.9rem;
     text-align: center;
+    width: 10rem;
 }
 
 .movie p {

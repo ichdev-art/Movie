@@ -64,7 +64,7 @@ a {
     font-size: 1.4rem;
 }
 
-.searchbar {
+form {
     width: 100%;
 }
 
@@ -99,7 +99,7 @@ a {
 }
 
 
-#containerMovie {
+#containerMovie, #filmSearch {
     display: flex;
     overflow-x: scroll;
     width: 100%;

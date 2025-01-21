@@ -15,13 +15,11 @@ fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=fr-FR`, options
     .then((reponse) => reponse.json())
     .then((credit) => {
 
-
-
-        fetch(`https://api.themoviedb.org/3/movie/${id}?language=fr-FR`, options)
+        fetch(`https://api.themoviedb.org/3/movie/${id}?language=fr-FR&page=1`, options)
             .then((reponse) => reponse.json())
             .then((film) => {
 
-                fetch(`https://api.themoviedb.org/3/movie/${film.id}/videos?language=fr-FR`, options)
+                fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=fr-FR`, options)
                     .then((reponse) => reponse.json())
                     .then((videos) => {
                         moment.locale("fr")
@@ -67,7 +65,7 @@ fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=fr-FR`, options
                     </div>
                     <button><i class="fa-solid fa-heart"></i></button>
                     <button><i class="fa-solid fa-star"></i></button>
-                    <a href="https://www.youtube.com/embed/${videos.results[0].key}" target="_blank" class="bande"><i class="fa-solid fa-play"></i> Bande annonce</a>
+                    <a href="https://www.youtube.com/embed/${videos.results[0]==null?videos.results[0]:videos.results[0].key}" target="_blank" class="bande"><i class="fa-solid fa-play"></i> Bande annonce</a>
                     <div class="synopsis">
                         <p>${film.tagline}</p>
                         <h2>Résume</h2>

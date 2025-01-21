@@ -1,5 +1,12 @@
+const options = {
+    method: 'GET',
+    headers: {
+        accept: 'application/json',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZGM2ZThiNzY0NjNhMzhiOTFmZmE5N2VlMzU1YWYzNiIsIm5iZiI6MTczNTgyMjAwOS4zOTM5OTk4LCJzdWIiOiI2Nzc2OGFiOTE5NGI1ODE2ZDc2MTViYmEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.hvc8PtNka41sXdaGykaOQMfwtK0LEGAw7Yhb4IeYiok'
+    }
+};
 
-fetch('movies.json')
+fetch('https://api.themoviedb.org/3/movie/now_playing?language=fr-FR&page=1', options)
     .then(response => response.json())
     .then(data => {
         console.log(data);
@@ -18,7 +25,7 @@ fetch('movies.json')
                             <h3>${item.title}</h3>
                             <p>${moment(item.release_date).format("LL")}</p>
                             <div class="mooveNote">
-                                <div class="note" title="${item.vote_count} votes">${item.vote_average}</div>
+                                <div class="note" title="${item.vote_count} votes">${Math.round(item.vote_average * 10)/10}</div>
                             </div>
                         </div>
                     </section>`;
